@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fitness Snack</title>
+  <meta name="description" content="Four-minute workouts, twice a day.">
+  <meta name="theme-color" content="#eef3ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111a15" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Fitness Snack">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main id="main"><noscript>Fitness Snack needs JavaScript to run.</noscript></main>
+  <nav class="tabs" aria-label="Main">
+    <a href="#/"><span aria-hidden="true">🏠</span>Today</a>
+    <a href="#/progress"><span aria-hidden="true">📊</span>Progress</a>
+    <a href="#/workout"><span aria-hidden="true">📝</span>Workout</a>
+    <a href="#/awards"><span aria-hidden="true">🏆</span>Awards</a>
+  </nav>
+  <div id="toast" role="status" hidden></div>
+  <script>
+    // One file lost on a bad connection must not leave a blank screen.
+    function loadFailed() {
+      document.getElementById('main').innerHTML =
+        '<h1>Could not load</h1><p>Check your connection and try again. Your history is safe.</p>' +
+        '<button class="btn primary" onclick="location.reload()">Try again</button>';
+    }
+  </script>
+  <script type="module" src="js/app.js" onerror="loadFailed()"></script>
+</body>
+</html>
